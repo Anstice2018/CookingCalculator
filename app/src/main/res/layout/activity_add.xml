@@ -17,6 +17,7 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"/>
     <EditText
+        android:id="@+id/ed_描述"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:hint="輸入描述"
