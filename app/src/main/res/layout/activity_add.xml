@@ -8,14 +8,26 @@
     android:layout_margin="10dp"
     tools:context="com.example.anstice.AddActivity">
 
-    <EditText
-        android:id="@+id/ed_名稱"
-        android:layout_width="125dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="品項名稱"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"/>
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/ed_名稱"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:hint="品項名稱"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"/>
+        <ImageButton
+            android:id="@+id/ib_圖片"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/no_image"
+            android:scaleType="fitCenter"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
     <EditText
         android:id="@+id/ed_描述"
         android:layout_width="match_parent"
