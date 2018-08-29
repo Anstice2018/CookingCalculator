@@ -8,12 +8,12 @@ import java.io.Serializable;
 
 public class Recipe implements Serializable {
     private String name;
-    private int drawableId;
+    //private int drawableId = R.drawable.no_image;
 
     // Construtor
     public Recipe(String name, int drawableId) {
         this.name = name;
-        this.drawableId = drawableId;
+        //this.drawableId = drawableId;
     }
 
     // getter
@@ -21,7 +21,8 @@ public class Recipe implements Serializable {
         return name;
     }
 
+    /*
     public int getDrawableId() {
         return drawableId;
-    }
+    }*/
 }

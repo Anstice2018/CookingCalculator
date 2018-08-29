@@ -3,6 +3,7 @@ package com.example.anstice;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -33,6 +34,8 @@ public class AddActivity extends AppCompatActivity {
 
     private static final int 圖片請求 = 1;
 
+    public static final String TAG = "AddActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,7 @@ public class AddActivity extends AppCompatActivity {
 
         init();
 
+        /**
         // 給 KEY 才能取能內容  (回想 map)
         if (savedInstanceState != null){
             名稱 = savedInstanceState.getString(KEY_名稱);
@@ -49,12 +53,14 @@ public class AddActivity extends AppCompatActivity {
             份 = savedInstanceState.getString(KEY_份);                    // 為什麼不能打 getInt
 
         }
+         */
 
     }
 
     private void init() {
         m_ed_名稱 = findViewById(R.id.ed_名稱);
         m_ed_描述 = findViewById(R.id.ed_描述);
+        m_ib_圖片 = findViewById(R.id.ib_圖片);
         m_ed_份 = findViewById(R.id.ed_份);
         圖片 = 未選圖預設值;
 
@@ -64,6 +70,7 @@ public class AddActivity extends AppCompatActivity {
 
     }
 
+    /**
     @Override
     protected void onSaveInstanceState (Bundle outState){
         outState.putString(KEY_名稱, 名稱);
@@ -73,6 +80,7 @@ public class AddActivity extends AppCompatActivity {
 
         super.onSaveInstanceState(outState);
     }
+    */
 
     public void click(View view) {
         switch (view.getId()){
@@ -82,10 +90,12 @@ public class AddActivity extends AppCompatActivity {
                 intent.putExtra(KEY_名稱, 名稱);
                 intent.putExtra(KEY_DRAWABLE_ID, 圖片);
                 setResult(RESULT_OK, intent);
+                Log.d(TAG, "按下確定");
                 break;
             case R.id.btn_cancel:
                 setResult(RESULT_CANCELED);
                 break;
         }
+        finish();
     }
 }

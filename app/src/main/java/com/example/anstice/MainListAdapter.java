@@ -1,6 +1,7 @@
 package com.example.anstice;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,6 +20,8 @@ public class MainListAdapter extends BaseAdapter {
     private Activity activity;
     private List<Recipe> list;
 
+    public static final String TAG = "MainListAdapter";
+
     public MainListAdapter(MainActivity activity, ArrayList<Recipe> list) {
         this.activity = activity;
         this.list = list;
@@ -26,7 +29,9 @@ public class MainListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
+        Log.d(TAG, "這是 size ＝ " + list.size());
         return list.size();
+
     }
 
     @Override
@@ -50,7 +55,7 @@ public class MainListAdapter extends BaseAdapter {
         Recipe recipe = list.get(position);     // 取得陣列第 i 項物件
 
         m_tv_itemName.setText(recipe.getName());
-        m_iv_itemImage.setImageResource(recipe.getDrawableId());
+        //m_iv_itemImage.setImageResource(recipe.getDrawableId());
         return v;
     }
 }

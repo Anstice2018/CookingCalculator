@@ -17,6 +17,8 @@
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:hint="品項名稱"
+            android:maxLines="1"
+            android:maxLength="20"
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
             android:gravity="center"/>

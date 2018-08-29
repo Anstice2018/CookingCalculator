@@ -2,10 +2,12 @@ package com.example.anstice;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +16,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+            implements AdapterView.OnItemClickListener{
 
     private static final int 新增請求碼 = 0;
     private static final int 更新請求碼 = 1;
@@ -23,16 +26,19 @@ public class MainActivity extends AppCompatActivity {
     public static final String LIST_KEY = "list";
 
     private ListView m_listView;
-    private  MainListAdapter m_adapter;
+    private MainListAdapter m_adapter;
 
     private ArrayList<Recipe> m_list = new ArrayList<>();
 
     private int itemIndex;          // 修改的是第幾項
 
     private final String TAG = this.getClass().getSimpleName();     // 取得類別名稱
-    private static final String FILENAME = "UseAnswers.data";       // 存檔名稱
+    //private static final String FILENAME = "UseAnswers.data";       // 存檔名稱
 
 
+    public ArrayList<Recipe> getM_list() {
+        return m_list;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,19 +63,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         m_listView = findViewById(R.id.lv_item);
-        //m_adapter = new MainListAdapter(this, m_list);
+        m_adapter = new MainListAdapter(this, m_list);
 
         m_listView.setEmptyView(findViewById(R.id.tv_empty));
         m_listView.setAdapter(m_adapter);
-        //m_listView.setOnItemClickListener(this);
+        m_listView.setOnItemClickListener(this);
 
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 新增請求碼 && requestCode == RESULT_OK){
+        if(requestCode == 新增請求碼 && resultCode == RESULT_OK){
             Bundle bundle = data.getExtras();
 
             String 名稱 = bundle.getString(AddActivity.KEY_名稱);
@@ -79,7 +85,11 @@ public class MainActivity extends AppCompatActivity {
 
             Recipe recipe = new Recipe(名稱, 圖片);       // 建立資料庫
             m_list.add(recipe);
+            Log.d(TAG, "返回 MainActivity");
             m_adapter.notifyDataSetChanged();
+
+
+
         }else if(requestCode == 更新請求碼 && resultCode == RESULT_OK){
             Recipe recipe = (Recipe) data.getSerializableExtra(MainActivity.RECIPE_KEY);
             // 重新設定 陣列中的寵物資料
@@ -108,5 +118,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
     }
 }
