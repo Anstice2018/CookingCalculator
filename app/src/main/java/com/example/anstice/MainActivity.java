@@ -58,6 +58,14 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        // 重現儲存資料
+        if (savedInstanceState != null){
+            m_list = (ArrayList)savedInstanceState.getSerializable(LIST_KEY);
+        } else {
+            reStoreData();
+        }
+
+        // 初始化
         init();
     }
 
@@ -97,6 +105,34 @@ public class MainActivity extends AppCompatActivity
             m_adapter.notifyDataSetChanged();
         }
     }
+
+
+    // 儲存資料
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable(LIST_KEY, m_list);
+        super.onSaveInstanceState(outState);
+    }
+
+    public void saveData(){
+
+    }
+
+    public void reStoreData(){
+
+    }
+
+    @Override
+    protected  void onStop(){
+        super.onStop();
+        saveData();
+    }
+
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

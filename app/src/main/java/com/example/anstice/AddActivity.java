@@ -51,7 +51,6 @@ public class AddActivity extends AppCompatActivity {
             圖片 = savedInstanceState.getInt(KEY_DRAWABLE_ID);
             m_ib_圖片.setImageResource(圖片);                // Maybe 是圖檔資源較大, 需要 setImageResource
             份 = savedInstanceState.getString(KEY_份);                    // 為什麼不能打 getInt
-
         }
          */
 
