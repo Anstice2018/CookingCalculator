@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cooking Calculator</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_confirm">OK</string>
+    <string name="tv_empty">No Content</string>
+    <string name="ed_name">Cuisine Name</string>
+    <string name="ed_description">Description</string>
+    <string name="ed_ingredient">ingredient</string>
+    <string name="ed_weight">weight</string>
+    <string name="ed_total">Total Weight</string>
+    <string name="ad_message">View Recipe?</string>
+    <string name="ad_delete">Delete</string>
+    <string name="ad_cancel">Cancel</string>
+    <string name="ad_view">Yes!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

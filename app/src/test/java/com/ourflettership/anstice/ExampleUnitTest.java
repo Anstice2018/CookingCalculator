@@ -1,4 +1,4 @@
-package com.example.anstice;
+package com.ourflettership.anstice;
 
 import org.junit.Test;
 

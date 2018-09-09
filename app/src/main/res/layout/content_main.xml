@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.anstice.MainActivity"
+    tools:context="com.ourflettership.anstice.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <LinearLayout
@@ -23,7 +23,8 @@
             android:id="@+id/tv_empty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="目前沒有資料"
+            android:text="@string/tv_empty"
+            android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
     </LinearLayout>

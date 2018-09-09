@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="10dp"
-    tools:context="com.example.anstice.AddActivity">
+    tools:context="com.ourflettership.anstice.AddActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +16,8 @@
             android:id="@+id/ed_名稱"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:hint="品項名稱"
+            android:hint="@string/ed_name"
+            android:textAllCaps="false"
             android:maxLines="1"
             android:maxLength="20"
             android:layout_marginTop="10dp"
@@ -26,15 +27,18 @@
             android:id="@+id/ib_圖片"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:onClick="clickib"
             android:src="@drawable/no_image"
             android:scaleType="fitCenter"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
+
     <EditText
         android:id="@+id/ed_描述"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:hint="輸入描述"
+        android:hint="@string/ed_description"
+        android:textAllCaps="false"
         android:layout_margin="10dp"/>
 
     <ScrollView
@@ -43,132 +47,393 @@
 
         <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="horizontal"
-            android:columnCount="4">
+            android:layout_height="300dp"
+            android:columnCount="8"
+            android:orientation="horizontal">
 
+            <!-- 材料 -->
             <LinearLayout
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
+                android:layout_columnWeight="4"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
                 <EditText
+                    android:id="@+id/ed_ingredient1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="材料"/>
+                    android:hint="@string/ed_ingredient" />
+
                 <EditText
+                    android:id="@+id/ed_ingredient2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="材料"/>
+                    android:hint="@string/ed_ingredient" />
+
                 <EditText
+                    android:id="@+id/ed_ingredient3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="材料"/>
+                    android:hint="@string/ed_ingredient" />
+
                 <EditText
+                    android:id="@+id/ed_ingredient4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="材料"/>
+                    android:hint="@string/ed_ingredient" />
+
                 <EditText
+                    android:id="@+id/ed_ingredient5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="材料"/>
+                    android:hint="@string/ed_ingredient" />
+
                 <EditText
+                    android:id="@+id/ed_ingredient6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="材料"/>
+                    android:hint="@string/ed_ingredient" />
+
                 <EditText
+                    android:id="@+id/ed_ingredient7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="材料"/>
+                    android:hint="@string/ed_ingredient" />
+
             </LinearLayout>
 
+            <!-- 重量 -->
             <LinearLayout
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
+                android:layout_columnWeight="4"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
                 <EditText
                     android:id="@+id/ed_weight1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="重量(g)"
-                    android:text="10"
-                    android:inputType="number"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    android:hint="@string/ed_weight"
+                    android:inputType="numberDecimal"
+                    android:text="10" />
+
                 <EditText
                     android:id="@+id/ed_weight2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="重量(g)"
-                    android:inputType="number"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    android:hint="@string/ed_weight"
+                    android:inputType="numberDecimal" />
+
                 <EditText
                     android:id="@+id/ed_weight3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="重量(g)"
-                    android:inputType="number"
-                    android:gravity="right"/>
-            </LinearLayout>
+                    android:gravity="right"
+                    android:hint="@string/ed_weight"
+                    android:inputType="numberDecimal" />
 
-            <LinearLayout
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
                 <EditText
-                    android:id="@+id/ed_份"
+                    android:id="@+id/ed_weight4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="(份)"
-                    android:text="1"
-                    android:inputType="number"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    android:hint="@string/ed_weight"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/ed_weight5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:hint="@string/ed_weight"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/ed_weight6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:hint="@string/ed_weight"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/ed_weight7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:hint="@string/ed_weight"
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
+            <!-- 重量單位 -->
             <LinearLayout
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/ed_wUnit1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_wUnit2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_wUnit3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_wUnit4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_wUnit5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_wUnit6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_wUnit7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+            </LinearLayout>
+
+
+            <!-- X -->
+            <LinearLayout
+                android:layout_columnWeight="2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="x"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            </LinearLayout>
+            <!-- copy -->
+            <LinearLayout
+                android:layout_columnWeight="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <EditText
+                    android:id="@+id/ed_份"
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:hint="(份)"
+                    android:inputType="numberDecimal"
+                    android:text="1" />
+            </LinearLayout>
+            <!-- = -->
+            <LinearLayout
+                android:layout_columnWeight="2"
+                android:layout_marginBottom="5dp">
+                <Button
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:text="="
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:onClick="clickCal"/>
+            </LinearLayout>
+
+
+            <!-- 總重量 -->
+            <LinearLayout
+                android:layout_columnWeight="4"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
                 <EditText
                     android:id="@+id/ed_total1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="總重量"
-                    android:inputType="number"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    android:hint="@string/ed_total"
+                    android:textAllCaps="false"
+                    android:inputType="number" />
+
                 <EditText
                     android:id="@+id/ed_total2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="總重量"
-                    android:inputType="number"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    android:hint="@string/ed_total"
+                    android:textAllCaps="false"
+                    android:inputType="number" />
+
                 <EditText
                     android:id="@+id/ed_total3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="總重量"
-                    android:inputType="number"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    android:hint="@string/ed_total"
+                    android:textAllCaps="false"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/ed_total4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:hint="@string/ed_total"
+                    android:textAllCaps="false"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/ed_total5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:hint="@string/ed_total"
+                    android:textAllCaps="false"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/ed_total6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:hint="@string/ed_total"
+                    android:textAllCaps="false"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/ed_total7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:hint="@string/ed_total"
+                    android:textAllCaps="false"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <!-- 總重量單位 -->
+            <LinearLayout
+                android:layout_columnWeight="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/ed_tUnit1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_tUnit2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_tUnit3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_tUnit4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_tUnit5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_tUnit6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
+
+                <EditText
+                    android:id="@+id/ed_tUnit7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left"
+                    android:hint="(g)"/>
             </LinearLayout>
 
         </GridLayout>
 
     </ScrollView>
 
-
+    <!-- 確認 取消 -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -178,7 +443,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="75dp"
-            android:text="取消"
+            android:text="@string/btn_cancel"
+            android:textAllCaps="false"
             android:onClick="click"/>
         <Button
             android:id="@+id/btn_confirm"
@@ -186,7 +452,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="75dp"
             android:layout_alignParentRight="true"
-            android:text="確認"
+            android:text="@string/btn_confirm"
+            android:textAllCaps="false"
             android:onClick="click"/>
     </RelativeLayout>
 

@@ -1,4 +1,4 @@
-package com.example.anstice;
+package com.ourflettership.anstice;
 
 import android.app.Activity;
 import android.util.Log;
@@ -54,8 +54,9 @@ public class MainListAdapter extends BaseAdapter {
 
         Recipe recipe = list.get(position);     // 取得陣列第 i 項物件
 
+
         m_tv_itemName.setText(recipe.getName());
-        //m_iv_itemImage.setImageResource(recipe.getDrawableId());
+        m_iv_itemImage.setImageResource(recipe.getDrawableId());
         return v;
     }
 }
